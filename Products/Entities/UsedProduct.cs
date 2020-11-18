@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Globalization;
 
 namespace Products.Entities {
     class UsedProduct : Product {
@@ -14,11 +15,13 @@ namespace Products.Entities {
         public override string PriceTag() {
             
             StringBuilder strProducts = new StringBuilder();
-            strProducts.Append("(Used) ");
-            strProducts.Append(base.PriceTag());
-            strProducts.Append("(Manufacture date: ");
+
+            strProducts.Append(Name);
+            strProducts.Append(" (Used) $ ");
+            strProducts.Append(Price.ToString("F2", CultureInfo.InvariantCulture));
+            strProducts.Append(" (Manufacture date: ");
             strProducts.Append(ManufactureDate.ToString("dd/MM/yyyy"));
-            strProducts.AppendLine(")");
+            strProducts.Append(")");
 
             return strProducts.ToString();
         }

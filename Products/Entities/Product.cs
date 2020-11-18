@@ -17,9 +17,8 @@ namespace Products.Entities {
             StringBuilder strProducts = new StringBuilder();
 
             strProducts.Append(Name);
-            strProducts.Append("$ ");
-            strProducts.AppendLine(Price.ToString("F2", CultureInfo.InvariantCulture));
-
+            strProducts.Append(" $ ");
+            strProducts.Append(Price.ToString("F2", CultureInfo.InvariantCulture));
 
             return strProducts.ToString();
         }

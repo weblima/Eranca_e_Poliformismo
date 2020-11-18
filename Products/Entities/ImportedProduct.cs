@@ -25,11 +25,12 @@ namespace Products.Entities {
 
             StringBuilder strProducts = new StringBuilder();
 
-            strProducts.Append(base.PriceTag());
+            strProducts.Append(Name);
+            strProducts.Append(" $ ");
+            strProducts.Append(TotalPrice().ToString("F2", CultureInfo.InvariantCulture));
             strProducts.Append(" (Customs fee: $ ");
-            strProducts.Append(TotalPrice());
-            strProducts.AppendLine(")");
-
+            strProducts.Append(CustomsFree.ToString("F2", CultureInfo.InvariantCulture));
+            strProducts.Append(")");
 
             return strProducts.ToString();
         }
